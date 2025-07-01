@@ -11,7 +11,7 @@
     <select id="get">
         SELECT id, title, created_at
         FROM memo
-        ORDER BY id
+        ORDER BY id DESC
     </select>
 
     <select id="getById">
