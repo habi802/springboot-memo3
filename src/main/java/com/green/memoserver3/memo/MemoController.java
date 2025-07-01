@@ -18,7 +18,7 @@ public class MemoController {
     @PostMapping
     public ResultResponse<Integer> post(@RequestBody MemoPostReq req, HttpServletRequest request) {
         req.setIp(getUserIp(request));
-        log.info("req={}", req);
+        log.info("post req={}", req);
         int result = memoService.post(req);
         return new ResultResponse<>("등록 성공", result);
     }
@@ -35,8 +35,15 @@ public class MemoController {
 
     @PutMapping
     public ResultResponse<Integer> put(@RequestBody MemoPutReq req) {
-        log.info("req={}", req);
+        log.info("put req={}", req);
         int result = memoService.put(req);
         return new ResultResponse<>("수정 성공", result);
+    }
+
+    @DeleteMapping
+    public ResultResponse<Integer> delete(@RequestParam(name = "memo_id") int memoId) {
+        log.info("delete memoId={}", memoId);
+        int result = memoService.delete(memoId);
+        return new ResultResponse<>("삭제 성공", result);
     }
 }

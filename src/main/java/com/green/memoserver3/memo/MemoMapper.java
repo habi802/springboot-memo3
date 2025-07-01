@@ -8,4 +8,5 @@ import org.apache.ibatis.annotations.Mapper;
 public interface MemoMapper {
     int post(MemoPostReq req);
     int put(MemoPutReq req);
+    int delete(int memoId);
 }

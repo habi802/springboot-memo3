@@ -17,4 +17,8 @@ public class MemoService {
     public int put(MemoPutReq req) {
         return memoMapper.put(req);
     }
+
+    public int delete(int memoId) {
+        return memoMapper.delete(memoId);
+    }
 }
