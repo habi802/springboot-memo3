@@ -8,6 +8,12 @@
             created_ip = #{createdIp}
     </insert>
 
+    <select id="get">
+        SELECT id, title, created_at
+        FROM memo
+        ORDER BY id
+    </select>
+
     <update id="put">
         UPDATE memo
         SET title = #{title},

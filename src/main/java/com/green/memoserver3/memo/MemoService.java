@@ -1,9 +1,12 @@
 package com.green.memoserver3.memo;
 
+import com.green.memoserver3.memo.model.MemoGetRes;
 import com.green.memoserver3.memo.model.MemoPostReq;
 import com.green.memoserver3.memo.model.MemoPutReq;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -12,6 +15,10 @@ public class MemoService {
 
     public int post(MemoPostReq req) {
         return memoMapper.post(req);
+    }
+
+    public List<MemoGetRes> get() {
+        return memoMapper.get();
     }
 
     public int put(MemoPutReq req) {

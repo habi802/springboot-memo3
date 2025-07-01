@@ -1,12 +1,15 @@
 package com.green.memoserver3.memo;
 
 import com.green.memoserver3.config.model.ResultResponse;
+import com.green.memoserver3.memo.model.MemoGetRes;
 import com.green.memoserver3.memo.model.MemoPostReq;
 import com.green.memoserver3.memo.model.MemoPutReq;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -31,6 +34,13 @@ public class MemoController {
         }
 
         return ip;
+    }
+
+    @GetMapping
+    public ResultResponse<List<MemoGetRes>> get() {
+        List<MemoGetRes> result = memoService.get();
+        String message = String.format("rows: %d", result.size());
+        return new ResultResponse<>(message, result);
     }
 
     @PutMapping
