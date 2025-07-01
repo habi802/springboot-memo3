@@ -4,7 +4,8 @@
     <insert id="post">
         INSERT INTO memo
         SET title = #{title},
-            content = #{content}
+            content = #{content},
+            ip = #{ip}
     </insert>
 
     <update id="put">
