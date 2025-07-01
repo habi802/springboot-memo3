@@ -6,4 +6,11 @@
         SET title = #{title},
             content = #{content}
     </insert>
+
+    <update id="put">
+        UPDATE memo
+        SET title = #{title},
+            content = #{content}
+        WHERE id = #{memoId}
+    </update>
 </mapper>
