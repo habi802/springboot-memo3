@@ -21,6 +21,10 @@ public class MemoService {
         return memoMapper.get();
     }
 
+    public MemoGetRes getById(int memoId) {
+        return memoMapper.getById(memoId);
+    }
+
     public int put(MemoPutReq req) {
         return memoMapper.put(req);
     }

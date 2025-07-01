@@ -11,6 +11,7 @@ import java.util.List;
 public interface MemoMapper {
     int post(MemoPostReq req);
     List<MemoGetRes> get();
+    MemoGetRes getById(int memoId);
     int put(MemoPutReq req);
     int delete(int memoId);
 }

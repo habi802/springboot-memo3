@@ -43,6 +43,12 @@ public class MemoController {
         return new ResultResponse<>(message, result);
     }
 
+    @GetMapping("/{memoId}")
+    public ResultResponse<MemoGetRes> getById(@PathVariable("memoId") int memoId) {
+        MemoGetRes result = memoService.getById(memoId);
+        return new ResultResponse<>("조회 성공", result);
+    }
+
     @PutMapping
     public ResultResponse<Integer> put(@RequestBody MemoPutReq req) {
         log.info("put req={}", req);
