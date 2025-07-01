@@ -5,7 +5,7 @@
         INSERT INTO memo
         SET title = #{title},
             content = #{content},
-            ip = #{ip}
+            created_ip = #{createdIp}
     </insert>
 
     <update id="put">

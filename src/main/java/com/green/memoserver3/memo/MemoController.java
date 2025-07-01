@@ -17,7 +17,7 @@ public class MemoController {
 
     @PostMapping
     public ResultResponse<Integer> post(@RequestBody MemoPostReq req, HttpServletRequest request) {
-        req.setIp(getUserIp(request));
+        req.setCreatedIp(getUserIp(request));
         log.info("post req={}", req);
         int result = memoService.post(req);
         return new ResultResponse<>("등록 성공", result);
