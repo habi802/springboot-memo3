@@ -8,6 +8,5 @@ public class MemoGetRes {
     @JsonProperty("memoId")
     private int id;
     private String title;
-    private String content;
     private String createdAt;
 }

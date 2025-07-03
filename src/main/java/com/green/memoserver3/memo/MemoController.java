@@ -37,14 +37,16 @@ public class MemoController {
     }
 
     @GetMapping
-    public ResultResponse<List<MemoGetRes>> get() {
-        List<MemoGetRes> result = memoService.get();
+    public ResultResponse<List<MemoGetRes>> get(@RequestParam(name = "search_text") String searchText) {
+        log.info("searchText={}", searchText);
+        List<MemoGetRes> result = memoService.get(searchText);
         String message = String.format("rows: %d", result.size());
         return new ResultResponse<>(message, result);
     }
 
     @GetMapping("/{memoId}")
     public ResultResponse<MemoGetRes> getById(@PathVariable("memoId") int memoId) {
+        log.info("getById memoId={}", memoId);
         MemoGetRes result = memoService.getById(memoId);
         return new ResultResponse<>("조회 성공", result);
     }

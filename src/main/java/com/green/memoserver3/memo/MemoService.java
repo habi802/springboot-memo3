@@ -17,8 +17,8 @@ public class MemoService {
         return memoMapper.post(req);
     }
 
-    public List<MemoGetRes> get() {
-        return memoMapper.get();
+    public List<MemoGetRes> get(String searchText) {
+        return memoMapper.get(searchText);
     }
 
     public MemoGetRes getById(int memoId) {

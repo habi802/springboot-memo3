@@ -10,7 +10,7 @@ import java.util.List;
 @Mapper
 public interface MemoMapper {
     int post(MemoPostReq req);
-    List<MemoGetRes> get();
+    List<MemoGetRes> get(String searchText);
     MemoGetRes getById(int memoId);
     int put(MemoPutReq req);
     int delete(int memoId);
