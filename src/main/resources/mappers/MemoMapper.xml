@@ -11,10 +11,20 @@
     <select id="get">
         SELECT id, title, created_at
         FROM memo
-        <if test="searchText != null and searchText != ''">
-            WHERE title LIKE '%${searchText}%'
-            OR content LIKE '%${searchText}%'
-        </if>
+        <where>
+            <choose>
+                <when test="searchOption == 'title'">
+                    title LIKE '%${searchText}%'
+                </when>
+                <when test="searchOption == 'content'">
+                    content LIKE '%${searchText}%'
+                </when>
+                <otherwise>
+                    title LIKE '%${searchText}%'
+                    OR content LIKE '%${searchText}%'
+                </otherwise>
+            </choose>
+        </where>
         ORDER BY id DESC
     </select>
 
