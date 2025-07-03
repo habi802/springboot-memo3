@@ -1,5 +1,6 @@
 package com.green.memoserver3.memo;
 
+import com.green.memoserver3.memo.model.MemoGetReq;
 import com.green.memoserver3.memo.model.MemoGetRes;
 import com.green.memoserver3.memo.model.MemoPostReq;
 import com.green.memoserver3.memo.model.MemoPutReq;
@@ -17,8 +18,8 @@ public class MemoService {
         return memoMapper.post(req);
     }
 
-    public List<MemoGetRes> get(String searchText) {
-        return memoMapper.get(searchText);
+    public List<MemoGetRes> get(MemoGetReq req) {
+        return memoMapper.get(req);
     }
 
     public MemoGetRes getById(int memoId) {

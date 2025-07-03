@@ -1,6 +1,7 @@
 package com.green.memoserver3.memo;
 
 import com.green.memoserver3.config.model.ResultResponse;
+import com.green.memoserver3.memo.model.MemoGetReq;
 import com.green.memoserver3.memo.model.MemoGetRes;
 import com.green.memoserver3.memo.model.MemoPostReq;
 import com.green.memoserver3.memo.model.MemoPutReq;
@@ -37,9 +38,9 @@ public class MemoController {
     }
 
     @GetMapping
-    public ResultResponse<List<MemoGetRes>> get(@RequestParam(name = "search_text") String searchText) {
-        log.info("searchText={}", searchText);
-        List<MemoGetRes> result = memoService.get(searchText);
+    public ResultResponse<List<MemoGetRes>> get(MemoGetReq req) {
+        log.info("get req={}", req);
+        List<MemoGetRes> result = memoService.get(req);
         String message = String.format("rows: %d", result.size());
         return new ResultResponse<>(message, result);
     }
