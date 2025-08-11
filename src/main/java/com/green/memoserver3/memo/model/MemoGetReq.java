@@ -10,10 +10,14 @@ import java.beans.ConstructorProperties;
 public class MemoGetReq {
     String searchOption;
     String searchText;
+    Integer lastIdx;
+    Integer limit;
 
-    @ConstructorProperties({"search_option", "search_text"})
-    public MemoGetReq(String searchOption, String searchText) {
+    @ConstructorProperties({"search_option", "search_text", "last_idx", "limit"})
+    public MemoGetReq(String searchOption, String searchText, Integer lastIdx, Integer limit) {
         this.searchOption = searchOption;
         this.searchText = searchText;
+        this.lastIdx = lastIdx;
+        this.limit = limit;
     }
 }
